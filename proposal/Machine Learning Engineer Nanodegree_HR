@@ -1,0 +1,75 @@
+# Machine Learning Engineer Nanodegree
+
+## Capstone Proposal
+
+A, Rubin-Schwarz
+November 27th, 2016
+
+## Proposal
+
+(approx. 2-3 pages)
+
+### Domain Background
+
+According to the Bureau of Labor Statistics the median number of years that wage and salary workers had been with their current employer was 4.2 years in January 2016. While this number varies from industry to industry the story of an employee who sticks with one company for the entirety of a working life seems to be rather antiquated. Now more than ever it gets important to acquire the necessary tools for employers to understand where its workforce is standing. Additional insights from employer reports, scorecards as well as general statistical information can offer prediction values for companies when it comes to the longetivity of jobs. In this notebook we are trying to predict the likelihood of an employee quitting based on available information.
+
+It's costly. Research shows that the replacement cost for an hourly worker can be as high as 50 % of the annual salary. And this number increases with the seniority of the skillset. Senior-level (up to 200%) Executive (up to 400%).
+
+### Problem Statement
+
+The problem to be solved is detecting the key elements of employee tenure and predicting whether an employee might be quitting her job.	This problem affects companies from all sizes. Although it can be said that based on statistics there are certain industry traits that have a higher tenure time, relative speaking the tendency to switch jobs has increased over time. The boundaries of this problem of course are the underlying mechanisms of every individual company. It can not be generalized as in how to prevent but more as in how to predict. Company culture, direct reports, individual needs might turn out to be far more complicated than a list of features. However, if we fix this problem the path to a more successful and sustainable company culture is given. 
+
+### Datasets and Inputs
+
+Measuring employee satisfaction is a tough and highly interdepent task. There are a lot of different dimensions at play and turning them into quantifiably format (less to say machine-readable information) can pose a challenge. Information from employee reviews, tenure, balanced scorecards and key performance indicators can offer a first gateway to understanding an employee's desire to leave the company. 
+
+In a dataset published on [kaggle](http://www.kaggle.com) we are offered with a database of employees and key features to their exmployment status. The dataset consists out of almost 15.000 data points and 10 variables. Unfortunately there is no available codebook besides a brief information on the available inputs. The inputs we will be relying on are:
+
+* Employee satisfaction level
+* Last evaluation
+* Number of projects
+* Average monthly hours
+* Time spent at the company
+* Whether they have had a work accident
+* Whether they have had a promotion in the last 5 years
+* Sales [describing the department]
+* Salary
+
+In addition the dataset provides an indicator whether an employee has left which we'll be setting as our dependent variable.
+
+
+### Solution Statement
+
+We are trying to solve this problem on two dimensions by combining unsupervised and supervised learning algorithms. First we'll do an in-depth exploratory analysis in an attempt to explain the underlying relationships in the data set. Afterwards we'll be using clustering algorithms in order to create segments within our data set and enrichen the descriptive value of the data. Afterwards we'll implement a model that will empower employers to not onlyl detect, which of their own employees is about to leave the company but also determine which of the features contributes the most to a happy company culture. The success of our final solution will be measured by its predicting accuracy on a held-out test set.
+
+
+### Benchmark Model
+
+A lot of research and work has been performed to retain talent and decrease employee turnover rates. From corporate funded research and analytics services of companies such as [Visier](http://www.visier.com/) to Management study classics such as [Cotton, Tuttle](https://www.researchgate.net/profile/John_Cotton3/publication/211384381_Employee_Turnover_A_Meta-Analysis_and_Review_With_Implications_for_Research/links/54590b130cf2bccc4912b3f5.pdf) or later research by [Punnose, Ajit](http://thesai.org/Downloads/IJARAI/Volume5No9/Paper_4-Prediction_of_Employee_Turnover_in_Organizations.pdf) to name a few. 
+There are valid methods for predicting employee turnover rate and results that can be taken as benchmark models. For this research we'll be using the machine learning approach of Punnose and Ajit as a benchmark. Their research performed predictive tasks on company information with an AUC (Area under the Curve) of .86 on hold-out data. 
+
+
+### Evaluation Metrics
+
+AUC (**A**rea **u**nder the **C**urve) is a common evaluation metric for binary classification problems. It's value is between 0 to 1 and describes the accuracy of a binary classification based on its true positive values. As described [here](https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve), the area under the curve is equal to the probability that a classifier will rank a randomly chosen positive instance higher than a randomly chosen negative one.
+
+To put this more into perspective, [kaggle](https://www.kaggle.com/wiki/AreaUnderCurve) describes a way of viewing AUC as a plot of the true positive rate vs the false positive rate where the threshold value for classifying an item as 0 or is increased from 0 to 1. It can be stated, that if the classifier is very good, the true positive rate will increase quickly and the area under the curve will be close to 1. If the classifier is no better than random guessing, the true positive rate will increase linearly with the false positive rate and the area under the curve will be around 0.5.
+
+
+### Project Design
+After describing the problem we are trying to solve and the data set we are going to use let's move over to the project design. In general the approach should be pretty straight forward and will be split up in following chronological steps:
+
+**1. Exploratory Analysis**
+To get a better grasp on the information that is included in the data set, we'll start off with a thorough exploratory analysis. After looking at the key metrics of the data we'll start asking basic questions regarding the status quo of our employees. We'll also try to figure out which features tend to be more describing than others when it comes to our prediction tasks and we'll be looking at correlations to discover underlying relationships in our data. 
+
+**2. Data Preprocessing**
+From a short preview on the data set we can already tell that we are dealing with numeric but also categorical data. In order to make this information machine-readable we'll be applying a one-hot-encoding step. For numeric attributes we might consider normalization or calibrating. In addition, depending on our exploratory analysis, we might consider imputation techniques for missing data and outliers processing.
+
+**3. Deciding on algorithms & techniques**
+Even though we are already set on the type of machine learning we want to apply this will be the part where we're conducting additional research to find the best fitting algorithms for our deemed solution. There is an array of possibilities on how to tackle this problem and our key metrices to decide on a set of algorithms will be data-size, computational efficiency and cross-validation scores. However as mentioned earlier we'll be performing a clustering algorithm first in order to segment our employee data. This could be valuable especially when it comes to early detection and deciding on strategies for intervention. We will be using a 60/40 split upfront, to create a testing and a training data set.
+
+**4. Defining Models**
+We'll apply an array of tasks to our model in order to figure out the best way of handling our prediction task. This might include selecting, fine-tuning, and combining the best algorithms using techniques such as model fitting, model blending, data reduction, feature selection, and assessing the yield of each model, over the baseline. To avoid overfitting and enable generalization we will be using cross-validation.
+
+**5. Discussion**
+Finally we'll discuss our model and our results in comparison to mentioned references and benchmark-models. This is, where we want to emphasize the general idea behind our approach and open it up to additional data sets from small to mid-size companies.
