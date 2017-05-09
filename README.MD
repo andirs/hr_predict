@@ -19,9 +19,9 @@ In a dataset published on [kaggle](https://www.kaggle.com/ludobenistant/hr-analy
 In order to run the analysis of this research, please follow these quick instructions.
 
 ## Files
-- *proposal.pdf*: Initial proposal of the project.
-- *report.pdf*: Final report of the research.
-- *Human Resource Prediction.ipynb*: Contains all code to produce the results in report.pdf
+- *[Predicting_Why_Employees_Leave.pdf](https://github.com/andirs/hr_predict/blob/master/Predicting_Why_Employees_Leave.pdf)*: Final report of the research.
+- *[Human Resource Prediction.ipynb](https://github.com/andirs/hr_predict/blob/master/Human%20Resource%20Prediction.ipynb)*: Contains all code to produce the results in report.pdf
+- *hr_predict.py*: Additional functions to improve readability
 
 ## Frameworks
 All code has been written in Python 2.7.12 and has been run on a Jupyter notebook server (4.2.3). 
